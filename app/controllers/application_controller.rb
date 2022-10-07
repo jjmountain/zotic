@@ -1,6 +1,16 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  def current_user
+    if current_teacher 
+      current_teacher
+    elsif current_student
+      current_student
+    else 
+      null
+    end
+  end
+
   protected
 
   def devise_parameter_sanitizer
@@ -22,12 +32,14 @@ end
 class Teacher::ParameterSanitizer < Devise::ParameterSanitizer
   def initialize(*)
     super
+    permit(:sign_up, keys: [:first_name, :last_name])
+
   end
 end
 
 class Student::ParameterSanitizer < Devise::ParameterSanitizer
   def initialize(*)
     super
-    permit(:sign_up, keys: [:student_number])
+    permit(:sign_up, keys: [:student_number, :first_name, :last_name])
   end
 end
