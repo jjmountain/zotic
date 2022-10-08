@@ -1,4 +1,8 @@
 /** @type {import('tailwindcss').Config} */
+
+const defaultTheme = require("tailwindcss/defaultTheme");
+
+
 module.exports = {
   content: [
     "./app/helpers/**/*.rb",
@@ -6,7 +10,11 @@ module.exports = {
     "./app/views/**/*",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["Inter var", ...defaultTheme.fontFamily.sans],
+      },
+    },
   },
   plugins: [],
 };
