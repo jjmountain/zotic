@@ -11,5 +11,8 @@
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.1.8"
   }
 }

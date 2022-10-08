@@ -33,6 +33,19 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  # An additional watch process is needed to re-build the JS and CSS file after changes 
+  # (see docs). Tailwind, for example, uses a Just-in-time compiler to only add classes 
+  # to the CSS that are being used in your application. This requires specifying an 
+  # additional path to listen for any (Just-in-time) changes.
+
+  config.hotwire_livereload.listen_paths << Rails.root.join("app/assets/builds")
+
+  # If you don’t have data-turbo-track="reload" attribute on your 
+  # JS and CSS bundles you might need to setup force reloading.
+  # This will trigger full browser reloading for JS and CSS files only:
+  config.hotwire_livereload.force_reload_paths << Rails.root.join("app/assets/stylesheets")
+  config.hotwire_livereload.force_reload_paths << Rails.root.join("app/javascript")
+
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
