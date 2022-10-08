@@ -18,9 +18,10 @@ class Teachers::SessionsController < Devise::SessionsController
   # end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  def destroy
+    @user = current_user
+    super
+  end
 
   # protected
 

@@ -11,7 +11,20 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  
   protected
+  
+  def after_sign_in_path_for(resource)
+    puts "resource is #{resource}"
+    return teachers_dashboard_home_path
+  end
+  
+    def after_sign_out_path_for(scope)
+    # return the path based on scope
+    puts scope
+    root_path
+  end
+
 
   def devise_parameter_sanitizer
     if resource_class == Teacher
