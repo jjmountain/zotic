@@ -58,6 +58,9 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  gem 'htmlbeautifier'
+  gem "prettier"
+
 
   # for live reload from https://dev.to/thomasvanholder/how-to-set-up-rails-hotwire-live-reload-38i9
   gem "hotwire-livereload"

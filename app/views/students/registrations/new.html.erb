@@ -1,29 +1,24 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<div class="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:px- border mt-4">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), builder: TailwinduiFormBuilder, html: { class: ''}) do |f| %>
+  <div class="space-y-6 sm:space-y-5">
+  <%= render 'shared/form_header', title: 'Student Sign Up', desc: "Enter the information below to sign up as a student." %>
   <%= render "students/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
+  <div class="space-y-6 sm:space-y-5">
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password %>
+    <%= f.text_field :first_name, autofocus: true %>
+
+    <%= f.text_field :last_name, autofocus: true %>
+
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
 
-  <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
+  </div>
 <% end %>
-
-<%= render "students/shared/links" %>
+</div>

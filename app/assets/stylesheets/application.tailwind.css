@@ -2,12 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
-
-@layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
-  }
+.tailwind-form-grid {
+  @apply space-y-8 divide-y divide-gray-200;
 }
 
-*/
+.text-input {
+  @apply block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs sm:text-sm;
+}
+
+.text-input-wrapper {
+  @apply mt-1 sm:col-span-2 sm:mt-0;
+}
+
+.text-input-label {
+  @apply block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2;
+}
+
+.form-wrapper-divider {
+  @apply sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5;
+}
+
+input[type="submit"],
+.form-button {
+  @apply cursor-pointer inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2;
+}
