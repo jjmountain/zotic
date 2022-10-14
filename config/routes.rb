@@ -13,7 +13,7 @@ Rails.application.routes.draw do
                registrations: "students/registrations",
                passwords: "students/passwords",
                confirmations: "students/confirmations",
-               unlocks: "students/unlocks"
+               unlocks: "students/unlocks",
              }
   devise_for :teachers,
              path: "teachers",
@@ -22,7 +22,8 @@ Rails.application.routes.draw do
                registrations: "teachers/registrations",
                passwords: "teachers/passwords",
                confirmations: "teachers/confirmations",
-               unlocks: "teachers/unlocks"
+               unlocks: "teachers/unlocks",
+               omniauth_callbacks: "teachers/omniauth_callbacks",
              }
 
   # teacher only routes

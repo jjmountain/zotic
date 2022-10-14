@@ -1,4 +1,4 @@
-import { Application } from "@hotwired/stimulus"
+import { Application } from "@hotwired/stimulus";
 import {
   Alert,
   Autosave,
@@ -10,13 +10,13 @@ import {
   Slideover,
 } from "tailwindcss-stimulus-components";
 
-const application = Application.start()
+const application = Application.start();
 
 // Configure Stimulus development experience
-application.debug = false
-window.Stimulus   = application
+application.debug = false;
+window.Stimulus = application;
 
 // from tailwind-css-stimulus-components
 application.register("dropdown", Dropdown);
 
-export { application }
+export { application };
