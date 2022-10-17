@@ -1,5 +1,7 @@
 <h1 data-controller="hello" class="text-5xl text-bold text-indigo-600">
   Susan is where
 </h1>
+<%= button_to  'Login with Google', teacher_google_oauth2_omniauth_authorize_path, method: :post, :data => {turbo: "false"} %>
 <p class="test-class">Find us in app/views/home/index.html.erb</p>
+
 <hello-component />
