@@ -6,6 +6,8 @@ class Teacher < ApplicationRecord
   has_many :courses, dependent: :destroy
 
   def self.from_google(google_params)
+    puts "google params are"
+    puts google_params
     create_with(
       uid: google_params[:uid],
       provider: "google_oauth",
