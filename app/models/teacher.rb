@@ -6,13 +6,22 @@ class Teacher < ApplicationRecord
   has_many :courses, dependent: :destroy
 
   def self.from_google(google_params)
-    puts "google params are"
-    puts google_params
-    create_with(
-      uid: google_params[:uid],
-      provider: "google_oauth",
-      first_name: google_params[:first_name],
-      last_name: google_params[:last_name],
-    ).find_or_create_by!(email: google_params[:email])
+    teacher = find_or_initialize_by(email: google_params[:email])
+    if teacher.new_record?
+      teacher.provider = "google_oauth2"
+      teacher_attributes =
+        google_params.filter do |key|
+          (%w[provider last_name first_name uid].include?(key.to_s))
+        end
+      puts "teacher attributes"
+      puts teacher_attributes
+      updated_teacher_attributes =
+        teacher_attributes.reject { |key, value| value === nil }
+      puts "updated teacher attributes"
+      puts updated_teacher_attributes
+      teacher.assign_attributes(updated_teacher_attributes)
+      teacher.save!
+    end
+    teacher
   end
 end
